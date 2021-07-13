@@ -3,7 +3,7 @@
 # module load anacondapy/5.3.1
 
 # 1. Edit wherever the dicoms get transferred on the scanner
-scanner_dir=/home/banana/pygers_workshop/sample_data/dcm
+scanner_dir=/home/banana/pygers_workshop
 #scanner_dir=/jukebox/dicom/conquest/Prisma-MSTZ400D/NormaL/2020 #Prisma
 #scanner_dir=/jukebox/norman/pygers/conquest #Sample project data
 

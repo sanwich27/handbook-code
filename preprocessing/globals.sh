@@ -1,6 +1,6 @@
 #! /bin/bash
 
-module load anacondapy/5.3.1
+# module load anacondapy/5.3.1
 
 # 1. Edit wherever the dicoms get transferred on the scanner
 scanner_dir=/jukebox/dicom/conquest/Skyra-AWP45031/NormaL/2020 #Skyra

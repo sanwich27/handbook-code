@@ -2,7 +2,7 @@
 
 # LOAD GLOBAL VARIABLES AND MODULES ON THE CLUSTER
 source globals.sh   
-module load fsl/6.0.2
+module load fsl/6.0.4
 # module load pydeface/2.0.0
 
 sid=$1

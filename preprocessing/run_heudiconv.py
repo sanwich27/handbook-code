@@ -15,7 +15,8 @@ data_dir = argv[4]
 print("Running heudiconv for subject {0} session {1}".format(subj_id, session_id))
 
 run("singularity exec --cleanenv --bind {0}:/home "
-    "/jukebox/hasson/singularity/heudiconv/heudiconv.sqsh "
+#   "/jukebox/hasson/singularity/heudiconv/heudiconv.sqsh "
+    "/banana/singularity/heudiconv/heudiconv-v0.9.0.simg "
     "heudiconv -f reproin --subject {2} --ses {3} --bids --locator /home/bids --files "
     "/home/dicom/{1}".format(data_dir, subj_dir.split('/')[-1], subj_id, session_id),
     shell=True)

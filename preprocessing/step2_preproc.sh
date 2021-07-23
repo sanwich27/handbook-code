@@ -17,6 +17,7 @@ find $bids_dir/sub-$subj -name "*scout*" -delete
 # delete duplicate runs if you run multiple -- OPTIONAL FOR YOU
 find $bids_dir/sub-$subj -name "*dup*" -delete
 
+<<'###BLOCK-COMMENT'
 # if you took AP/PA fieldmaps, here's an example on modifying the output to be bids-compatible
 # MAKE SURE YOU MODIFY THE FILENAMES TO MATCH YOUR STUDY'S FILENAMES 
 
@@ -64,3 +65,4 @@ insert="${beginning}${run1} ${run2} ${run3} ${run4} ${run5} ${run6} ${run7} ${ru
 
 sed -i "35 a \ \ ${insert}" $bids_dir/sub-$subj/ses-02/fmap/sub-${subj}_ses-02_dir-AP_epi.json
 sed -i "35 a \ \ ${insert}" $bids_dir/sub-$subj/ses-02/fmap/sub-${subj}_ses-02_dir-PA_epi.json
+###BLOCK-COMMENT

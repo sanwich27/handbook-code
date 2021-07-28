@@ -2,17 +2,20 @@
 
 source globals.sh
 
-singularity run --cleanenv \
-    --bind $project_dir:/home \
-    /jukebox/hasson/singularity/fmriprep/fmriprep-v1.4.0.sqsh \
-    --participant-label sub-$1 \
-    --fs-license-file /home/code/preprocessing/license.txt \
-    --no-submm-recon \
-    --bold2t1w-dof 6 --nthreads 8 --omp-nthreads 8 \
-    --output-spaces T1w fsaverage:den-41k MNI152NLin2009cAsym \
-    --write-graph --work-dir /home/data/bids/derivatives/work \
-    /home/data/bids /home/data/bids/derivatives participant
-
+docker run -it --rm 
+	-v $project_dir:/project \
+	-v $scratch_dir:/scratch \
+	nipreps/fmriprep:20.2.3 \	        
+	--fs-license-file /project/code/preprocessing/license.txt \
+	--participant-label sub-$1 \
+	--no-submm-recon \
+	--use-syn-sdc --bold2t1w-dof 6 \
+	--correct-slice-timing \
+	--nthreads 8 --omp-nthreads 8 \
+	 --output-spaces T1w fsaverage:den-41k \
+	MNI152NLin2009cAsym:res-native MNI152NLin2009cAsym:res-2 \
+	--write-graph --work-dir /scratch \
+	/project/data/bids /project/data/bids/derivatives participant
  # many usage options
  # SEE HERE: https://fmriprep.readthedocs.io/en/stable/usage.html
 

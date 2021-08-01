@@ -11,9 +11,9 @@ source globals.sh
 #			        --correct-slice-timing --no-sub \
 #				    --nprocs 8 -w /scratch \
 #				        /bids /bids/derivatives/mriqc participant
-docker run -it --rm -v $bids_dir:/bids:ro -v $scratch_dir:/scratch \
+docker run -it --rm -v $bids_dir:/bids -v $scratch_dir:/scratch \
 	poldracklab/mriqc:latest \
 	--participant-label $1 \
-	--correct-slice-timing --no-sub \
+	--correct-slice-timing --no-sub --verbose\
 	--nprocs 8 -w /scratch \
 	/bids /bids/derivatives/mriqc participant
